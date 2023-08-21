@@ -1,6 +1,7 @@
-const puppeteer = require("puppeteer");
+import express from "express";
+import puppeteer from "puppeteer";
 
-const scrapeMed = async (medName) => {
+export const scrapeMed = async (medName) => {
   function fetchNum(str) {
     let matches = str.match(/(\d+)/);
 
@@ -53,5 +54,3 @@ const scrapeMed = async (medName) => {
     return { status: false };
   }
 };
-
-module.exports = { scrapeMed };

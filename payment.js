@@ -1,6 +1,8 @@
-require("dotenv").config();
-const express = require("express");
-const Razorpay = require("razorpay");
+import dotenv from "dotenv";
+import express from "express";
+import Razorpay from "razorpay";
+
+dotenv.config();
 
 const router = express.Router();
 
@@ -64,4 +66,4 @@ router.post("/success", async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
