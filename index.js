@@ -19,11 +19,11 @@ const corsOptions ={
   optionSuccessStatus:200
 }
 app.use(cors(corsOptions));
-/*app.use(function (req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // disabled for security on local
   res.header("Access-Control-Allow-Headers", "Content-Type");
   next();
-});*/
+});
 
 app.use(express.json({ extended: false }));
 
