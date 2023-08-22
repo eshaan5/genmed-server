@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   console.log(req.body);
   // scrape
   const med = await scrapeMed(req.body.name);
-  res.send(med);
+  res.json(med);
 });
 
 export default router;
