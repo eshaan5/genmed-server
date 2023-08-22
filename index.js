@@ -6,26 +6,15 @@ import payment from "./payment.js";
 import bodyParser from "body-parser";
 import medicine from "./medicine.js";
 
-const app = express();
-const port = process.env.PORT || 4000;
-dotenv.config();
+const app = express();  // this we do everytime
+const port = process.env.PORT || 4000;  // this we do everytime
+dotenv.config();  // this we do everytime
 
-//app.use(express.static(path.resolve(__dirname, '../client/build')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(cors());
-/*app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});*/
-
-//app.use(express.json({ extended: false }));
+app.use(bodyParser.json({ limit: '30mb', extended: true }));  // images
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));  // to accept the data
+app.use(cors());  // to allow cross-origin resource sharing
 
 app.use("/payment", payment);
-
 app.use("/medicine", medicine);
 
 app.listen(port, () => {
