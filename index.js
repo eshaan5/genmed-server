@@ -17,6 +17,12 @@ app.use(
     origin: ["http://localhost:3000/", "http://example.net"],
   })
 ); // to allow cross-origin resource sharing
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', '*');
+
+  next();
+});
 
 app.use("/payment", payment);
 app.use("/medicine", medicine);
