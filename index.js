@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { scrapeMed } from "./scrapers.js";
 import payment from "./payment.js";
 import bodyParser from "body-parser";
+import medicine from "./medicine.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -29,12 +30,7 @@ app.use(express.json({ extended: false }));
 
 app.use("/payment", payment);
 
-app.post("/medicine", async (req, res) => {
-  console.log(req.body);
-  // scrape
-  const med = await scrapeMed(req.body.name);
-  res.send(med);
-});
+app.use("/medicine", medicine);
 
 app.listen(port, () => {
   console.log(`GenMed listening on port ${port}`);

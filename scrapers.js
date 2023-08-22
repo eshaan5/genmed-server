@@ -1,4 +1,3 @@
-import express from "express";
 import puppeteer from "puppeteer";
 
 export const scrapeMed = async (medName) => {
