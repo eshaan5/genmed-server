@@ -12,11 +12,7 @@ dotenv.config(); // this we do everytime
 
 app.use(bodyParser.json({ limit: "30mb", extended: true })); // images
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true })); // to accept the data
-app.use(
-  cors({
-    origin: ["http://localhost:3000/", "http://example.net"],
-  })
-); // to allow cross-origin resource sharing
+app.use(cors()); // to allow cross-origin resource sharing
 app.use((_req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', '*');
